@@ -57,10 +57,14 @@ router.get('/:id', async (req, res) => {
 // POST /api/sales - create sale
 router.post('/', async (req, res) => {
   try {
-    const { product_id, quantity, unit_price, total_price, sale_date } = req.body;
+    const { product_id, quantity, unit_price, sale_date, customer_name, notes } = req.body;
+    // Calculate total_price automatically
+    const total_price = quantity * unit_price;
     const result = await query(
-      'INSERT INTO sales (product_id, quantity, unit_price, total_price, sale_date) OUTPUT INSERTED.* VALUES (@product_id, @quantity, @unit_price, @total_price, @sale_date)',
-      { product_id, quantity, unit_price, total_price, sale_date }
+      `INSERT INTO sales (product_id, quantity, unit_price, total_price, sale_date, customer_name, notes)
+       OUTPUT INSERTED.*
+       VALUES (@product_id, @quantity, @unit_price, @total_price, @sale_date, @customer_name, @notes)`,
+      { product_id, quantity, unit_price, total_price, sale_date: sale_date || new Date(), customer_name, notes }
     );
     res.status(201).json({ success: true, data: result.recordset[0] });
   } catch (err) {
