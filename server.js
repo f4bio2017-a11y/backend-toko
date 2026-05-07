@@ -1,63 +1,102 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const app = express();
-const PORT = process.env.PORT || 8080;
 
-// ===== MIDDLEWARE =====
-app.use(cors({ origin: process.env.FRONTEND_ORIGIN || '*' }));
+// ── Middleware ──────────────────────────────────────────────
+const allowedOrigin = process.env.FRONTEND_ORIGIN || '*';
+app.use(cors({
+  origin: allowedOrigin === '*' ? '*' : allowedOrigin.split(',').map(s => s.trim()),
+  methods: ['GET','POST','PUT','PATCH','DELETE','OPTIONS'],
+  allowedHeaders: ['Content-Type','Authorization','X-API-Key']
+}));
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
-// Request logger (simple)
+// ── API Key Middleware (optional) ────────────────────────────
+app.use('/api', (req, res, next) => {
+  const apiKey = process.env.APP_API_KEY;
+  if (!apiKey) return next();
+  const sentKey = req.headers['x-api-key'] || req.query.api_key;
+  if (sentKey !== apiKey) return res.status(401).json({ success: false, message: 'API key tidak valid' });
+  next();
+});
+
+// ── Request Logger ───────────────────────────────────────────
 app.use((req, res, next) => {
-    const start = Date.now();
-    res.on('finish', () => {
-        const ms = Date.now() - start;
-        console.log('[' + new Date().toISOString() + '] ' + req.method + ' ' + req.path + ' ' + res.statusCode + ' (' + ms + 'ms)');
-    });
-    next();
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`);
+  next();
 });
 
-// ===== ROUTES =====
-// Core
-app.use('/api/health', require('./src/routes/health'));
-app.use('/api/products', require('./src/routes/products'));
-app.use('/api/sales', require('./src/routes/sales'));
-app.use('/api/auth', require('./src/routes/auth').router);
+// ── Static Files (Frontend) ──────────────────────────────────
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Master data
-app.use('/api/categories', require('./src/routes/categories'));
-app.use('/api/customers', require('./src/routes/customers'));
-app.use('/api/inventory', require('./src/routes/inventory'));
+// ── API Routes ───────────────────────────────────────────────
+app.use('/api/health',         require('./src/routes/health'));
+app.use('/api/auth',           require('./src/routes/auth').router);
+app.use('/api/products',       require('./src/routes/products'));
+app.use('/api/sales',          require('./src/routes/sales'));
+app.use('/api/categories',     require('./src/routes/categories'));
+app.use('/api/customers',      require('./src/routes/customers'));
+app.use('/api/inventory',      require('./src/routes/inventory'));
+app.use('/api/suppliers',      require('./src/routes/suppliers'));
+app.use('/api/materials',      require('./src/routes/materials'));
+app.use('/api/warehouses',     require('./src/routes/warehouses'));
+app.use('/api/bundles',        require('./src/routes/bundles'));
+app.use('/api/purchases',      require('./src/routes/purchases'));
+app.use('/api/returns',        require('./src/routes/returns'));
+app.use('/api',                require('./src/routes/misc'));
+app.use('/api/tiktok',         require('./src/routes/tiktok'));
+app.use('/api/shopee',         require('./src/routes/shopee'));
 
-// Marketplace integrations
-app.use('/api/tiktok', require('./src/routes/tiktok'));
-app.use('/api/shopee', require('./src/routes/shopee'));
-
-// ===== ROOT & ERROR HANDLERS =====
+// ── Root Endpoint ─────────────────────────────────────────────
 app.get('/', (req, res) => {
-    res.json({
-        status: 'ok',
-        name: 'Backend Toko API',
-        version: '2.1.0',
-        endpoints: [
-            '/api/health', '/api/products', '/api/sales',
-            '/api/auth', '/api/categories', '/api/customers',
-            '/api/inventory', '/api/tiktok', '/api/shopee'
-        ]
-    });
+  res.json({
+    name: 'BundleStock Backend API',
+    version: '3.0.0',
+    status: 'running',
+    timestamp: new Date().toISOString(),
+    endpoints: {
+      health:        '/api/health',
+      auth:          '/api/auth',
+      products:      '/api/products',
+      sales:         '/api/sales',
+      categories:    '/api/categories',
+      customers:     '/api/customers',
+      inventory:     '/api/inventory',
+      suppliers:     '/api/suppliers',
+      materials:     '/api/materials',
+      warehouses:    '/api/warehouses',
+      bundles:       '/api/bundles',
+      purchases:     '/api/purchases',
+      returns:       '/api/returns',
+      transfers:     '/api/transfers',
+      marketplaces:  '/api/marketplaces',
+      notifications: '/api/notifications',
+      mapping:       '/api/mapping',
+      tiktok:        '/api/tiktok',
+      shopee:        '/api/shopee',
+      frontend:      '/inventaris-bundling.html'
+    }
+  });
 });
 
+// ── 404 Handler ───────────────────────────────────────────────
 app.use((req, res) => {
-    res.status(404).json({ error: 'Route not found', path: req.path });
+  res.status(404).json({ success: false, message: 'Endpoint tidak ditemukan', path: req.path });
 });
 
+// ── Error Handler ─────────────────────────────────────────────
 app.use((err, req, res, next) => {
-    console.error('[ERROR]', err.stack);
-    res.status(500).json({ error: 'Internal server error' });
+  console.error('Error:', err.message);
+  res.status(500).json({ success: false, message: 'Internal server error', error: process.env.NODE_ENV === 'development' ? err.message : undefined });
 });
 
+// ── Start Server ──────────────────────────────────────────────
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log('Backend Toko v2.1.0 running on port ' + PORT);
+  console.log(`BundleStock API v3.0.0 berjalan di port ${PORT}`);
+  console.log(`Environment: ${process.env.NODE_ENV || 'production'}`);
 });
+
+module.exports = app;
