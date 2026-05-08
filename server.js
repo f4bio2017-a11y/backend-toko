@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const app = express();
 
 // ── Middleware ──────────────────────────────────────────────
@@ -28,6 +29,26 @@ app.use((req, res, next) => {
   next();
 });
 
+// ── HTML Middleware: inject patch-no-charts.js into inventaris-bundling.html ──
+app.get('/inventaris-bundling.html', (req, res) => {
+  const filePath = path.join(__dirname, 'public', 'inventaris-bundling.html');
+  fs.readFile(filePath, 'utf8', (err, data) => {
+    if (err) return res.status(404).send('File tidak ditemukan');
+    // Inject patch script before </head>
+    const patched = data
+      .replace(
+        '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>',
+        '<!-- Chart.js disabled for performance -->'
+      )
+      .replace(
+        '</head>',
+        '<script src="/patch-no-charts.js"></script>\n</head>'
+      );
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
+    res.send(patched);
+  });
+});
+
 // ── Static Files (Frontend) ──────────────────────────────────
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -53,7 +74,7 @@ app.use('/api/shopee',         require('./src/routes/shopee'));
 app.get('/', (req, res) => {
   res.json({
     name: 'BundleStock Backend API',
-    version: '3.0.0',
+    version: '3.1.0',
     status: 'running',
     timestamp: new Date().toISOString(),
     endpoints: {
@@ -95,7 +116,7 @@ app.use((err, req, res, next) => {
 // ── Start Server ──────────────────────────────────────────────
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-  console.log(`BundleStock API v3.0.0 berjalan di port ${PORT}`);
+  console.log(`BundleStock API v3.1.0 berjalan di port ${PORT}`);
   console.log(`Environment: ${process.env.NODE_ENV || 'production'}`);
 });
 
