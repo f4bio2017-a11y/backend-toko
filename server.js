@@ -85,6 +85,7 @@ const purchasesRouter = require('./src/routes/purchases');
 const warehousesRouter = require('./src/routes/warehouses');
 const returnsRouter = require('./src/routes/returns');
 const miscRouter = require('./src/routes/misc');
+const adminRouter = require('./src/routes/admin');
 
 app.use('/api/auth', authRouter);
 app.use('/api/products', verifyToken, productsRouter);
@@ -100,6 +101,7 @@ app.use('/api/transfers', miscRouter);
 app.use('/api/marketplaces', miscRouter);
 app.use('/api/notifications', miscRouter);
 app.use('/api/mapping', miscRouter);
+app.use('/api/admin', adminRouter);
 
 // == Health Check ==
 app.get('/', (req, res) => {
