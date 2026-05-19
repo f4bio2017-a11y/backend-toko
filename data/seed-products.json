@@ -1,0 +1,800 @@
+[
+  {
+    "name": "Penghilang Noda Pakaian Oxy Powder Pencerah Pakaian Berwarna 500 Gram - TOPLES",
+    "sku": "SPCT500GL",
+    "price": 39000,
+    "stock": 42587,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Penghilang Noda Pakaian Oxy Powder Pencerah Pakaian Berwarna 500 Gram - PLASTIK",
+    "sku": "SPCP500GL",
+    "price": 33000,
+    "stock": 73228,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Oxy Powder Detergent for Cloth Stain Removal - SPC Penghilang Noda Pakaian - TOPLES",
+    "sku": "SPCT1000GL",
+    "price": 76000,
+    "stock": 45088,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Oxy Powder Detergent for Cloth Stain Removal - SPC Penghilang Noda Pakaian - PLASTIK",
+    "sku": "SPCP1000GL",
+    "price": 66000,
+    "stock": 47769,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Penghilang Noda Pakaian Pencerah Pakaian Berwarna - Oxy Powder - Toples.",
+    "sku": "SPCT500",
+    "price": 39000,
+    "stock": 43927,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 240 Gram - Catalis Clear",
+    "sku": "SR48240C",
+    "price": 80000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 240 Gram - Catalis Biru",
+    "sku": "SR48240B",
+    "price": 80000,
+    "stock": 9079,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 1 kg - Catalis Clear",
+    "sku": "SR481000C",
+    "price": 230000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 1 kg - Catalis Biru",
+    "sku": "SR481000B",
+    "price": 230000,
+    "stock": 878,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Biru",
+    "sku": "PM10B",
+    "price": 18500,
+    "stock": 65726,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Hijau",
+    "sku": "PM10H",
+    "price": 18500,
+    "stock": 7738,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Merah",
+    "sku": "PM10M",
+    "price": 18500,
+    "stock": 8597,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Kuning",
+    "sku": "PM10K",
+    "price": 18500,
+    "stock": 8352,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Coklat",
+    "sku": "PM10C",
+    "price": 18500,
+    "stock": 9339,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna minyak  oil Soluble  10 Gram - Orange",
+    "sku": "PM10O",
+    "price": 18500,
+    "stock": 0,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Coklat",
+    "sku": "PPR45C",
+    "price": 18000,
+    "stock": 99448,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Hijau",
+    "sku": "PPR45HJ",
+    "price": 18000,
+    "stock": 99333,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Hijau Muda",
+    "sku": "PPR45HM",
+    "price": 18000,
+    "stock": 99545,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - HIjau DAUN",
+    "sku": "PPR45HD",
+    "price": 18000,
+    "stock": 99739,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Kuning",
+    "sku": "PPR45K",
+    "price": 18000,
+    "stock": 98898,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Biru Cyan",
+    "sku": "PPR45BC",
+    "price": 18000,
+    "stock": 99029,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Putih",
+    "sku": "PPR45PU",
+    "price": 18000,
+    "stock": 97481,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Ungu",
+    "sku": "PPR45U",
+    "price": 18000,
+    "stock": 583,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Orange",
+    "sku": "PPR45O",
+    "price": 18000,
+    "stock": 99600,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Orange Tua",
+    "sku": "PPR45OT",
+    "price": 18000,
+    "stock": 99890,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Merah Cabai",
+    "sku": "PPR45MC",
+    "price": 18000,
+    "stock": 99258,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Merah Tua",
+    "sku": "PPR45MT",
+    "price": 18000,
+    "stock": 99340,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Pink",
+    "sku": "PPR45PI",
+    "price": 18000,
+    "stock": 99434,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Ivory",
+    "sku": "PPR45I",
+    "price": 18000,
+    "stock": 99526,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Biru",
+    "sku": "PPR45B",
+    "price": 18000,
+    "stock": 9725,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Biru muda",
+    "sku": "PPR45BM",
+    "price": 18000,
+    "stock": 0,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pigment Pewarna Resin / Cat Resin / 45 Gram - Abu Abu",
+    "sku": "PPR45AA",
+    "price": 18000,
+    "stock": 9417,
+    "category": "Perlengkapan Menggambar Lainnya"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Hitam",
+    "sku": "PSR60H",
+    "price": 25000,
+    "stock": 762,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Kuning",
+    "sku": "PSR60K",
+    "price": 25000,
+    "stock": 900,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Merah",
+    "sku": "PSR60M",
+    "price": 25000,
+    "stock": 886,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Orange",
+    "sku": "PSR60O",
+    "price": 25000,
+    "stock": 958,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Cokat",
+    "sku": "PSR60C",
+    "price": 25000,
+    "stock": 929,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Ungu",
+    "sku": "PSR60U",
+    "price": 25000,
+    "stock": 984,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna Silicone Rubber RTV / 60 Gram - Biru",
+    "sku": "PSR60B",
+    "price": 25000,
+    "stock": 952,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 480 Gram - Catalis Clear",
+    "sku": "SR48480C",
+    "price": 160000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Silicone Rubber RTV 48 480 Gram - Catalis Biru",
+    "sku": "SR48480B",
+    "price": 160000,
+    "stock": 615,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - BLACK",
+    "sku": "BGLIT10B",
+    "price": 17500,
+    "stock": 9802,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - GREEN",
+    "sku": "BGLIT10GR",
+    "price": 17500,
+    "stock": 9808,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - GOLD",
+    "sku": "BGLIT10GD",
+    "price": 17500,
+    "stock": 9013,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - CLEAR WHITE",
+    "sku": "BGLIT10CW",
+    "price": 17500,
+    "stock": 59,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - FRUSIAN BLUE",
+    "sku": "BGLIT10FB",
+    "price": 17500,
+    "stock": 9597,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - DARK BLUE",
+    "sku": "BGLIT10DB",
+    "price": 17500,
+    "stock": 9738,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - SIVER",
+    "sku": "BGLIT10S",
+    "price": 17500,
+    "stock": 15,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - VIOLET",
+    "sku": "BGLIT10V",
+    "price": 17500,
+    "stock": 9739,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - PINK",
+    "sku": "BGLIT10P",
+    "price": 17500,
+    "stock": 0,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Bubuk glitter / glitter powder / serbuk glitter / 10 gram - RED",
+    "sku": "BGLIT10R",
+    "price": 17500,
+    "stock": 61,
+    "category": "Mainan Edukatif"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Biru",
+    "sku": "GID10B",
+    "price": 22000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Tosca",
+    "sku": "GID10T",
+    "price": 22000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Pink",
+    "sku": "GID10P",
+    "price": 22000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Kuning",
+    "sku": "GID10K",
+    "price": 22000,
+    "stock": 26,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Hijau ( ORIGINAL )",
+    "sku": "GID10HO",
+    "price": 22000,
+    "stock": 9,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Orange",
+    "sku": "GID10O",
+    "price": 22000,
+    "stock": 9515,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - Hijau stabilo",
+    "sku": "GID10HS",
+    "price": 22000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Glow in the dark powder  bubuk fosfor  10 Gram - ungu",
+    "sku": "GID10U",
+    "price": 22000,
+    "stock": 20,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Epoxy Resin Bening 1 KOMPONEN SAJA 100 GRAM - A",
+    "sku": "ERBA100",
+    "price": 50000,
+    "stock": 9730,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Epoxy Resin Bening 1 KOMPONEN SAJA 100 GRAM - B",
+    "sku": "ERBB100",
+    "price": 50000,
+    "stock": 9938,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Biru",
+    "sku": "PM250B",
+    "price": 395000,
+    "stock": 941,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Hijau",
+    "sku": "PM250HU",
+    "price": 395000,
+    "stock": 983,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Kuning",
+    "sku": "PM250K",
+    "price": 395000,
+    "stock": 986,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Coklat",
+    "sku": "PM250C",
+    "price": 395000,
+    "stock": 854,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Hitam",
+    "sku": "PM250HI",
+    "price": 395000,
+    "stock": 995,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Orange",
+    "sku": "PM250O",
+    "price": 395000,
+    "stock": 1000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pewarna oil soluble pewarna minyak 250 gram - Merah",
+    "sku": "PM250M",
+    "price": 395000,
+    "stock": 746,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - COKLAT",
+    "sku": "PPRC1000",
+    "price": 150000,
+    "stock": 9999,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - HIJAU",
+    "sku": "PPRHJ1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - HIJAU MUDA",
+    "sku": "PPRHM1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - HIJAU DAUN",
+    "sku": "PPRHD1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - KUNING",
+    "sku": "PPRK1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - BIRU CYAN",
+    "sku": "PPRBCY1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - PUTIH",
+    "sku": "PPRPU1000",
+    "price": 150000,
+    "stock": 9997,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - UNGU",
+    "sku": "PPRU1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - ORANGE",
+    "sku": "PPRO1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - ORANGE TUA",
+    "sku": "PPROT1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - PINK",
+    "sku": "PPRPI1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - IVORY",
+    "sku": "PPRI1000",
+    "price": 150000,
+    "stock": 9996,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - BIRU",
+    "sku": "PPRB1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - BIRU MUDA",
+    "sku": "PPRBM1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Pigment Pewarna Resin  Cat Resin 1 KG - ABU ABU",
+    "sku": "PPRAA1000",
+    "price": 150000,
+    "stock": 10000,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - silver",
+    "sku": "BM10S ",
+    "price": 15000,
+    "stock": 78,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - gold",
+    "sku": "BM10G",
+    "price": 15000,
+    "stock": 9863,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - cooper",
+    "sku": "BM10C",
+    "price": 15000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - blue red",
+    "sku": "BM10BR",
+    "price": 15000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - red purple",
+    "sku": "BM10RP",
+    "price": 15000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - gold green",
+    "sku": "BM10GG",
+    "price": 15000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - purple blue",
+    "sku": "BM10PB",
+    "price": 15000,
+    "stock": 9922,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - gold red",
+    "sku": "BM10GR",
+    "price": 15000,
+    "stock": 9913,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - silver gray",
+    "sku": "BM10SG",
+    "price": 15000,
+    "stock": 9915,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - silver super sparkle",
+    "sku": "BM10SSS",
+    "price": 15000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Metalic Powder / Mica Powder / Bubuk Metalik Pearl 10 gram - gold super sparkle",
+    "sku": "BM10GSS",
+    "price": 15000,
+    "stock": 82,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Detergent OXY / SPC / Penghilang Noda Pakaian / Pembersih Mesin Cuci - Plastik",
+    "sku": "SPCP500",
+    "price": 33000,
+    "stock": 8500,
+    "category": "Perawatan Pakaian"
+  },
+  {
+    "name": "Soda Abu Soda Ash - 500 Gram - Plastik",
+    "sku": "SODASH500P",
+    "price": 25000,
+    "stock": 65383,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Soda Abu Soda Ash - 500 Gram - Toples",
+    "sku": "SODASH500T",
+    "price": 31000,
+    "stock": 54367,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Silicone Rubber RTV 683 / 1 Kg - Clear",
+    "sku": "0",
+    "price": 550000,
+    "stock": 0,
+    "category": "Hobi & Koleksi"
+  },
+  {
+    "name": "Garam Inggris Epsom Salt Magnesium Sulfate MgSO4  500 Gram - Plastik",
+    "sku": "MGSO4500P",
+    "price": 25000,
+    "stock": 45342,
+    "category": "Bumbu Masak"
+  },
+  {
+    "name": "Garam Inggris Epsom Salt Magnesium Sulfate MgSO4  500 Gram - Toples",
+    "sku": "MGSO4500T",
+    "price": 31000,
+    "stock": 84545,
+    "category": "Bumbu Masak"
+  },
+  {
+    "name": "OXALIC / OKSALAT / OSASIR / PEMBERSIH KERAK 500 GRAM - Plastik",
+    "sku": "OXA500P",
+    "price": 40000,
+    "stock": 652705,
+    "category": "Pembersih"
+  },
+  {
+    "name": "OXALIC / OKSALAT / OSASIR / PEMBERSIH KERAK 500 GRAM - Toples",
+    "sku": "OXA500T",
+    "price": 46000,
+    "stock": 536307,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Soda Abu Soda Ash - 1 KG - Plastik",
+    "sku": "SODASH1000P",
+    "price": 40000,
+    "stock": 45956,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Soda Abu Soda Ash - 1 KG - Toples",
+    "sku": "SODASH1000T",
+    "price": 48000,
+    "stock": 76126,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Garam Inggris / Epsom Salt / Magnesium Sulfate / MgSO4 /1kg - Plastik",
+    "sku": "MGSO41000P",
+    "price": 40000,
+    "stock": 65250,
+    "category": "Bumbu Masak"
+  },
+  {
+    "name": "Garam Inggris / Epsom Salt / Magnesium Sulfate / MgSO4 /1kg - Toples",
+    "sku": "MGSO41000T",
+    "price": 48000,
+    "stock": 45243,
+    "category": "Bumbu Masak"
+  },
+  {
+    "name": "Citric Acid Monohydrate / Asam Sitrat / Asam Sitrun / 500 Gram - PLASTIK",
+    "sku": "CAFG500P",
+    "price": 30000,
+    "stock": 276017,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Citric Acid Monohydrate / Asam Sitrat / Asam Sitrun / 500 Gram - TOPLES",
+    "sku": "CAFG500T",
+    "price": 40000,
+    "stock": 962035,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Soda Kue Baking Soda Food Grade 1 Kg | Sodium Bicarbonate Serbaguna untuk Baking Kue Roti Pembersih Rumah Penghilang Bau | Bubuk Halus Berkualitas Tinggi untuk Dapur Laundry dan Kebutuhan Sehari Hari Multifungsi Aman Digunakan - PLASTIK",
+    "sku": "SODKUEFG1000P",
+    "price": 86000,
+    "stock": 8518,
+    "category": "Baking Powder & Soda Kue"
+  },
+  {
+    "name": "Soda Kue Baking Soda Food Grade 1 Kg | Sodium Bicarbonate Serbaguna untuk Baking Kue Roti Pembersih Rumah Penghilang Bau | Bubuk Halus Berkualitas Tinggi untuk Dapur Laundry dan Kebutuhan Sehari Hari Multifungsi Aman Digunakan - TOPLES",
+    "sku": "SODKUEFG1000T",
+    "price": 96000,
+    "stock": 16449,
+    "category": "Baking Powder & Soda Kue"
+  },
+  {
+    "name": "Citric Acid Monohydrate / Asam Sitrat / Asam Sitrun / 1 Kg - PLASTIK",
+    "sku": "CAFG1000P",
+    "price": 50000,
+    "stock": 342729,
+    "category": "Pembersih"
+  },
+  {
+    "name": "Citric Acid Monohydrate / Asam Sitrat / Asam Sitrun / 1 Kg - TOPLES",
+    "sku": "CAFG1000T",
+    "price": 60000,
+    "stock": 52613,
+    "category": "Pembersih"
+  },
+  {
+    "name": "OXALIC / OKSALAT / OSASIR / PEMBERSIH KERAK  1 KG - Plastik",
+    "sku": "OXA1000T",
+    "price": 60000,
+    "stock": 63229,
+    "category": "Pembersih"
+  },
+  {
+    "name": "OXALIC / OKSALAT / OSASIR / PEMBERSIH KERAK  1 KG - Toples",
+    "sku": "OXA1000P",
+    "price": 68000,
+    "stock": 64081,
+    "category": "Pembersih"
+  }
+]
