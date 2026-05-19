@@ -117,6 +117,8 @@
     $('#loginForm').hidden = tab !== 'login';
     $('#registerForm').hidden = tab !== 'register';
     $('#authTitle').textContent = tab === 'login' ? 'Masuk' : 'Daftar Akun';
+    // Re-render Google button after form becomes visible (so width is correct)
+    if (typeof renderGoogleButtons === 'function') setTimeout(renderGoogleButtons, 0);
   }
 
   // === Products ===
@@ -424,6 +426,64 @@
     }
   }
 
+  // === Google Sign-In ===
+  let googleInitialized = false;
+
+  async function initGoogleSignIn() {
+    try {
+      const res = await fetch(API_BASE + '/auth/google-config');
+      const body = await res.json();
+      const clientId = body && body.data && body.data.clientId;
+      if (!clientId) return;
+      waitForGoogle(() => {
+        if (googleInitialized) return;
+        googleInitialized = true;
+        window.google.accounts.id.initialize({
+          client_id: clientId,
+          callback: handleGoogleCredential,
+          ux_mode: 'popup',
+          auto_select: false,
+        });
+        renderGoogleButtons();
+      });
+    } catch (e) {
+      console.warn('Google Sign-In tidak aktif:', e.message);
+    }
+  }
+
+  function waitForGoogle(cb, tries = 0) {
+    if (window.google && window.google.accounts && window.google.accounts.id) return cb();
+    if (tries > 50) return;
+    setTimeout(() => waitForGoogle(cb, tries + 1), 100);
+  }
+
+  function renderGoogleButtons() {
+    if (!window.google || !window.google.accounts || !window.google.accounts.id) return;
+    const opts = { type: 'standard', theme: 'outline', size: 'large', text: 'continue_with', shape: 'rectangular', width: 320 };
+    ['googleBtnLogin', 'googleBtnRegister'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el && !el.dataset.rendered) {
+        window.google.accounts.id.renderButton(el, opts);
+        el.dataset.rendered = '1';
+      }
+    });
+  }
+
+  async function handleGoogleCredential(response) {
+    try {
+      const r = await api('/auth/google', {
+        method: 'POST',
+        body: JSON.stringify({ credential: response.credential }),
+      });
+      setAuth(r.data.user, r.data.token);
+      $('#authModal').setAttribute('aria-hidden', 'true');
+      toast('Selamat datang, ' + (r.data.user.username || r.data.user.email), 'success');
+      loadProducts();
+    } catch (e) {
+      toast('Login Google gagal: ' + e.message, 'error');
+    }
+  }
+
   function logout() {
     setAuth(null, null);
     state.cart = [];
@@ -485,6 +545,7 @@
     $('#registerForm').addEventListener('submit', onRegister);
 
     loadProducts();
+    initGoogleSignIn();
   }
 
   if (document.readyState === 'loading') {

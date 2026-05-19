@@ -2,11 +2,16 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
 const sql = require('mssql');
+const { OAuth2Client } = require('google-auth-library');
 const { getPool } = require('../db');
 
 const JWT_SECRET = process.env.JWT_SECRET || 'toko-secret-key-2026';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
+  || '975070206097-ao6eaftak1vvej63l5q6av65no9uo15s.apps.googleusercontent.com';
+const googleClient = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 // Middleware: verify JWT token
 const verifyToken = (req, res, next) => {
@@ -82,6 +87,73 @@ router.post('/login', async (req, res) => {
   } catch (err) {
     console.error('Login error:', err);
     res.status(500).json({ success: false, message: 'Server error', error: err.message });
+  }
+});
+
+// GET /api/auth/google-config - returns Google OAuth client_id for the frontend
+router.get('/google-config', (req, res) => {
+  res.json({ success: true, data: { clientId: GOOGLE_CLIENT_ID } });
+});
+
+// POST /api/auth/google - verify Google ID token, login or auto-create user
+router.post('/google', async (req, res) => {
+  try {
+    const { credential } = req.body;
+    if (!credential) {
+      return res.status(400).json({ success: false, message: 'credential (Google ID token) wajib diisi' });
+    }
+    const ticket = await googleClient.verifyIdToken({ idToken: credential, audience: GOOGLE_CLIENT_ID });
+    const payload = ticket.getPayload();
+    if (!payload || !payload.email) {
+      return res.status(401).json({ success: false, message: 'Google token tidak valid' });
+    }
+    if (payload.email_verified === false) {
+      return res.status(403).json({ success: false, message: 'Email Google belum terverifikasi' });
+    }
+    const email = String(payload.email).toLowerCase();
+    const displayName = payload.name || email.split('@')[0];
+    const pool = await getPool();
+
+    const existing = await pool.request()
+      .input('email', sql.NVarChar, email)
+      .query('SELECT id, username, email, role, is_active FROM users WHERE email = @email');
+
+    let user = existing.recordset[0];
+    if (user) {
+      if (!user.is_active) {
+        return res.status(403).json({ success: false, message: 'Akun dinonaktifkan' });
+      }
+    } else {
+      const base = String(displayName).slice(0, 80).trim() || email.split('@')[0];
+      let username = base;
+      for (let i = 1; i <= 100; i++) {
+        const check = await pool.request()
+          .input('u', sql.NVarChar, username)
+          .query('SELECT id FROM users WHERE username = @u');
+        if (check.recordset.length === 0) break;
+        username = `${base}${i}`;
+        if (i === 100) username = `${base}_${Date.now()}`;
+      }
+      const randomPwd = crypto.randomBytes(24).toString('hex');
+      const password_hash = await bcrypt.hash(randomPwd, 12);
+      const created = await pool.request()
+        .input('username', sql.NVarChar, username)
+        .input('email', sql.NVarChar, email)
+        .input('password_hash', sql.NVarChar, password_hash)
+        .input('role', sql.NVarChar, 'user')
+        .query('INSERT INTO users (username, email, password_hash, role) OUTPUT INSERTED.id, INSERTED.username, INSERTED.email, INSERTED.role VALUES (@username, @email, @password_hash, @role)');
+      user = created.recordset[0];
+    }
+
+    const token = jwt.sign({ id: user.id, username: user.username, role: user.role }, JWT_SECRET, { expiresIn: JWT_EXPIRES_IN });
+    res.json({
+      success: true,
+      message: 'Login Google berhasil',
+      data: { user: { id: user.id, username: user.username, email: user.email, role: user.role }, token },
+    });
+  } catch (err) {
+    console.error('Google auth error:', err);
+    res.status(401).json({ success: false, message: 'Verifikasi Google gagal', error: err.message });
   }
 });
 
