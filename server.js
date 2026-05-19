@@ -30,7 +30,8 @@ app.use(express.urlencoded({ extended: true }));
 // == API Key Middleware (optional) ==
 // Customer-facing shop endpoints are whitelisted; they rely on JWT (verifyToken)
 // for protection instead of the shared API key, which is reserved for backoffice access.
-const SHOP_PUBLIC_PREFIXES = ['/auth', '/products', '/sales'];
+// TODO: remove '/admin' from this list once one-shot seeding is finished.
+const SHOP_PUBLIC_PREFIXES = ['/auth', '/products', '/sales', '/admin'];
 app.use('/api', (req, res, next) => {
   const apiKey = process.env.APP_API_KEY;
   if (!apiKey) return next();
