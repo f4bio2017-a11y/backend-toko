@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — BundleStock</title>
+  <link rel="stylesheet" href="/shop.css" />
+  <link rel="stylesheet" href="/admin.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="/shop.html" class="brand">
+        <span class="brand-mark">BS</span>
+        <span class="brand-name">Admin · BundleStock</span>
+      </a>
+      <nav class="nav">
+        <a class="nav-link" href="/shop.html">← Kembali ke Toko</a>
+      </nav>
+      <div class="actions">
+        <div class="user-menu" hidden>
+          <span class="user-name" id="userName"></span>
+          <span class="role-pill" id="rolePill"></span>
+          <button class="btn btn-ghost btn-sm" id="logoutBtn">Keluar</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container admin-main">
+    <!-- Login required -->
+    <section class="card-block" id="loginRequired" hidden>
+      <h2>Masuk untuk lanjut</h2>
+      <p class="muted">Admin panel memerlukan akun. Silakan masuk dengan akun Anda terlebih dahulu.</p>
+      <form id="adminLoginForm" class="auth-form">
+        <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+        <label>Password<input type="password" name="password" required autocomplete="current-password" /></label>
+        <p class="form-error" id="adminLoginError" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Masuk</button>
+      </form>
+    </section>
+
+    <!-- Promote to admin -->
+    <section class="card-block" id="promoteBlock" hidden>
+      <h2>Promosikan akun jadi Admin</h2>
+      <p class="muted">Akun Anda (<strong id="promoteUser"></strong>) belum punya peran admin. Masukkan kode promosi untuk mengaktifkan akses admin.</p>
+      <form id="promoteForm" class="auth-form">
+        <label>Kode Promosi<input type="text" name="code" required autocomplete="off" placeholder="BS-ADMIN-PROMO-..." /></label>
+        <p class="form-error" id="promoteError" hidden></p>
+        <button type="submit" class="btn btn-primary btn-block">Aktifkan Admin</button>
+      </form>
+    </section>
+
+    <!-- Admin dashboard -->
+    <section class="dashboard" id="dashboard" hidden>
+      <div class="dash-head">
+        <div>
+          <h1>Kelola Produk</h1>
+          <p class="muted" id="productCount">Memuat…</p>
+        </div>
+        <div class="dash-actions">
+          <input type="search" id="adminSearch" placeholder="Cari nama / SKU…" />
+          <select id="filterStatus">
+            <option value="all">Semua status</option>
+            <option value="active">Aktif</option>
+            <option value="inactive">Nonaktif</option>
+          </select>
+          <button class="btn btn-primary" id="addProductBtn">+ Tambah Produk</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Nama</th>
+              <th>SKU</th>
+              <th>Kategori</th>
+              <th>Harga</th>
+              <th>Stok</th>
+              <th>Aktif</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="productTbody">
+            <tr><td colspan="8" class="empty">Memuat…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Product edit/create modal -->
+  <div class="modal" id="productModal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-modal></div>
+    <div class="modal-panel modal-lg" role="dialog">
+      <header class="modal-head">
+        <h3 id="productModalTitle">Edit Produk</h3>
+        <button class="icon-btn" data-close-modal aria-label="Tutup">✕</button>
+      </header>
+      <form id="productForm" class="auth-form auth-form-grid">
+        <input type="hidden" name="id" />
+        <label>Nama Produk<input type="text" name="name" required maxlength="250" /></label>
+        <label>SKU<input type="text" name="sku" required maxlength="90" /></label>
+        <label>Kategori<input type="text" name="category" maxlength="100" /></label>
+        <label>Harga (Rp)<input type="number" name="price" min="0" step="1" required /></label>
+        <label>Stok<input type="number" name="stock" min="0" step="1" required /></label>
+        <label class="span-2">URL Gambar
+          <input type="url" name="image_url" placeholder="https://… (paste link gambar)" />
+          <small class="muted">Tip: upload ke Imgur / Cloudinary / Google Drive (link share publik), lalu paste URL-nya di sini.</small>
+        </label>
+        <label class="span-2">Deskripsi
+          <textarea name="description" rows="4"></textarea>
+        </label>
+        <label class="checkbox-row">
+          <input type="checkbox" name="is_active" checked />
+          <span>Produk aktif (tampil di toko)</span>
+        </label>
+        <div class="preview" id="imgPreview" hidden></div>
+        <p class="form-error span-2" id="productFormError" hidden></p>
+        <div class="form-foot span-2">
+          <button type="button" class="btn btn-outline" data-close-modal>Batal</button>
+          <button type="submit" class="btn btn-primary" id="saveProductBtn">Simpan</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/admin.js"></script>
+</body>
+</html>

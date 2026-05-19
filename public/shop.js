@@ -172,9 +172,13 @@
     grid.innerHTML = items.map(p => {
       const outOfStock = (p.stock || 0) <= 0;
       const initial = (p.name || '?').trim().charAt(0).toUpperCase();
+      const imgInner = p.image_url
+        ? `<img src="${escapeHtml(p.image_url)}" alt="${escapeHtml(p.name || '')}" loading="lazy" onerror="this.parentElement.innerHTML='${initial}'" />`
+        : initial;
+      const imgStyle = p.image_url ? '' : `style="background:${colorForName(p.name || '')}"`;
       return `
         <article class="card">
-          <div class="card-img" style="background:${colorForName(p.name || '')}">${initial}</div>
+          <div class="card-img" ${imgStyle}>${imgInner}</div>
           <div class="card-body">
             ${p.category ? `<div class="card-cat">${escapeHtml(p.category)}</div>` : ''}
             <h3 class="card-name">${escapeHtml(p.name || '-')}</h3>
