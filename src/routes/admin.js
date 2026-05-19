@@ -5,17 +5,16 @@ const router = express.Router();
 const { getPool } = require('../db');
 const { seedProducts } = require('../seed');
 
-// POST /api/admin/seed-products and GET (for easy browser triggering during setup)
-async function runSeed(req, res) {
+// POST /api/admin/seed-products
+// Run the product seeder on demand. Returns counts and sample errors.
+router.post('/seed-products', async (req, res) => {
   try {
     const result = await seedProducts();
     res.json({ success: true, data: result });
   } catch (err) {
     res.status(500).json({ success: false, message: err.message });
   }
-}
-router.post('/seed-products', runSeed);
-router.get('/seed-products', runSeed);
+});
 
 // GET /api/admin/products-stats
 // Lightweight diagnostic: total products, with category, active.
