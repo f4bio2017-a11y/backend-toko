@@ -144,4 +144,6 @@ app.listen(PORT, () => {
   console.log(`BundleStock Backend v3.2.0 berjalan di port ${PORT}`);
   console.log(`Compression: ENABLED (gzip level 6)`);
   console.log(`Static cache: 1 hour`);
+  // Idempotent seed of products from data/seed-products.json (skips existing SKUs)
+  require('./src/seed').seedProducts().catch(e => console.error('[seed] Failed:', e.message));
 });
