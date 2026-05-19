@@ -11,6 +11,7 @@ const JWT_SECRET = process.env.JWT_SECRET || 'toko-secret-key-2026';
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '24h';
 const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID
   || '975070206097-ao6eaftak1vvej63l5q6av65no9uo15s.apps.googleusercontent.com';
+const ADMIN_PROMOTE_CODE = process.env.ADMIN_PROMOTE_CODE || 'BS-ADMIN-PROMO-K7M9X3Q2P5J8';
 const googleClient = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 // Middleware: verify JWT token
@@ -25,6 +26,14 @@ const verifyToken = (req, res, next) => {
   } catch (err) {
     return res.status(403).json({ success: false, message: 'Invalid or expired token' });
   }
+};
+
+// Middleware: verify admin role (use AFTER verifyToken)
+const verifyAdmin = (req, res, next) => {
+  if (!req.user || req.user.role !== 'admin') {
+    return res.status(403).json({ success: false, message: 'Admin access required' });
+  }
+  next();
 };
 
 // POST /api/auth/register
@@ -197,4 +206,33 @@ router.put('/change-password', verifyToken, async (req, res) => {
   }
 });
 
-module.exports = { router, verifyToken };
+// POST /api/auth/promote-to-admin (protected) - one-shot bootstrap of admin role
+router.post('/promote-to-admin', verifyToken, async (req, res) => {
+  try {
+    const { code } = req.body || {};
+    if (!code || code !== ADMIN_PROMOTE_CODE) {
+      return res.status(403).json({ success: false, message: 'Kode promosi tidak valid' });
+    }
+    const pool = await getPool();
+    await pool.request()
+      .input('id', sql.Int, req.user.id)
+      .query("UPDATE users SET role = 'admin' WHERE id = @id");
+    const newToken = jwt.sign(
+      { id: req.user.id, username: req.user.username, role: 'admin' },
+      JWT_SECRET,
+      { expiresIn: JWT_EXPIRES_IN }
+    );
+    res.json({
+      success: true,
+      message: 'Akun dipromosikan menjadi admin',
+      data: {
+        user: { id: req.user.id, username: req.user.username, role: 'admin' },
+        token: newToken,
+      },
+    });
+  } catch (err) {
+    res.status(500).json({ success: false, message: 'Server error', error: err.message });
+  }
+});
+
+module.exports = { router, verifyToken, verifyAdmin };
