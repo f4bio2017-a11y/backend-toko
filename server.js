@@ -28,9 +28,13 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // == API Key Middleware (optional) ==
+// Customer-facing shop endpoints are whitelisted; they rely on JWT (verifyToken)
+// for protection instead of the shared API key, which is reserved for backoffice access.
+const SHOP_PUBLIC_PREFIXES = ['/auth', '/products', '/sales'];
 app.use('/api', (req, res, next) => {
   const apiKey = process.env.APP_API_KEY;
   if (!apiKey) return next();
+  if (SHOP_PUBLIC_PREFIXES.some(p => req.path === p || req.path.startsWith(p + '/'))) return next();
   const sentKey = req.headers['x-api-key'] || req.query.api_key;
   if (sentKey !== apiKey) return res.status(401).json({ success: false, message: 'API key tidak valid' });
   next();
