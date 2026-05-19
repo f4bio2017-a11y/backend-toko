@@ -499,6 +499,28 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 13px;
   margin: 0;
 }
+.google-btn-wrap {
+  display: flex;
+  justify-content: center;
+  min-height: 40px;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
 .summary {
   background: var(--bg);
   border-radius: 10px;

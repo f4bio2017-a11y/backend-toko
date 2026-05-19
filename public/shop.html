@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>BundleStock — Online Shop</title>
   <link rel="stylesheet" href="/shop.css" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
 </head>
 <body>
   <header class="topbar">
@@ -112,12 +113,16 @@
         <button class="tab" data-tab="register">Daftar</button>
       </div>
       <form id="loginForm" class="auth-form">
+        <div class="google-btn-wrap" id="googleBtnLogin"></div>
+        <div class="divider"><span>atau</span></div>
         <label>Email<input type="email" name="email" required autocomplete="email" /></label>
         <label>Password<input type="password" name="password" required autocomplete="current-password" /></label>
         <p class="form-error" id="loginError" hidden></p>
         <button type="submit" class="btn btn-primary btn-block">Masuk</button>
       </form>
       <form id="registerForm" class="auth-form" hidden>
+        <div class="google-btn-wrap" id="googleBtnRegister"></div>
+        <div class="divider"><span>atau</span></div>
         <label>Nama<input type="text" name="username" required autocomplete="name" /></label>
         <label>Email<input type="email" name="email" required autocomplete="email" /></label>
         <label>Password<input type="password" name="password" required minlength="6" autocomplete="new-password" /></label>
